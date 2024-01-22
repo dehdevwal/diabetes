@@ -3,13 +3,14 @@ import numpy as np
 import os
 import pickle  # Explicitly import the pickle module
 
+
 # Get the directory of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Construct the file path using os.path.join
-file_path = os.path.join(script_dir, 'model', 'trained_model.sav')
+st.write("Script directory:", os.path.dirname(os.path.abspath(__file__)))
 
-# Load the pre-trained model from the file
+file_path = os.path.join(script_dir, 'model', 'trained_model.sav')
+st.write("Model file path:", file_path)
 with open(file_path, 'rb') as model_file:
     loaded_model = pickle.load(model_file)
 
