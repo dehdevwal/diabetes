@@ -1,7 +1,8 @@
 import streamlit as st
 import numpy as np
-import pickle
 import os
+import pickle  # Explicitly import the pickle module
+
 # Get the directory of the current script
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -9,7 +10,10 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(script_dir, 'model', 'trained_model.sav')
 
 # Load the pre-trained model from the file
-loaded_model = pickle.load(open(file_path, 'rb'))
+with open(file_path, 'rb') as model_file:
+    loaded_model = pickle.load(model_file)
+
+# Now you can use the loaded_model in your Streamlit app
 
 # Interface Streamlit
 st.title("Prédiction du Diabète")
